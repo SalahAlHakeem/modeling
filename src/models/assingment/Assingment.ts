@@ -1,4 +1,4 @@
-import { ObjectId, Schema, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 type AssingmentType = 'homework' | 'classwork';
 
@@ -9,17 +9,21 @@ export interface IAssingment {
         publishedTime: Date;
         deadlineTime:  Date;
     },
-    executedAssingments: Array<ObjectId>
+    lessonId: string | null
 }
 
 const AssingmentSchema = new Schema<IAssingment>({
-    type: ['classwork', 'homework'],
+    type: {
+        type: String,
+        enum: ['homework', 'classwork'],
+        default: 'homework'
+    },
     file: {type: String},
     time: {
         publishedTime: Date,
         deadlineTime: Date
     },
-    executedAssingments: [Schema.Types.ObjectId]
+    lessonId: {type: Schema.ObjectId, ref: 'Lesson'}
 })
 
 export const AssingmentModel = model('Assignment', AssingmentSchema);

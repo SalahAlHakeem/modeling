@@ -11,6 +11,7 @@
     "@types/mongoose": "^5.11.97"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "mongoose": "^8.0.1"
   },
   "keywords": [],

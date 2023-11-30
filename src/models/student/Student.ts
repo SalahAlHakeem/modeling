@@ -1,11 +1,10 @@
-import { ObjectId } from "mongoose";
 import { Schema, model } from "mongoose";
 
 export interface IStudent {
     fullName: string;
     email:    string;
     faculty:  string;
-    groupId:  ObjectId; 
+    groupId:  null | string; 
 }
 
 const StudentSchema = new Schema<IStudent>({

@@ -19,4 +19,3 @@ const AssingmentExecutionSchema = new Schema<IAssingmentExecution>({
 });
 
 export const AssingmentExecution = model('AssingmentExecution', AssingmentExecutionSchema);
-
